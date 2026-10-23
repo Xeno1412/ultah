@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Lock, KeyRound, Sparkles, Eye, EyeOff, ShieldCheck, HeartHandshake } from 'lucide-react';
 import { fireCelebrationConfetti } from '../utils/confetti';
 import { soundPlayer } from '../utils/sound';
+import { apiFetch } from '../utils/api';
 
 interface PasswordGateProps {
   onUnlockSuccess: () => void;
@@ -28,7 +29,7 @@ export const PasswordGate: React.FC<PasswordGateProps> = ({
     setErrorMsg('');
 
     try {
-      const res = await fetch('/api/verify-friend', {
+      const res = await apiFetch('api/verify-friend', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password })

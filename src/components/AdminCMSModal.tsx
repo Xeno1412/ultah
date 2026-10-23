@@ -18,6 +18,7 @@ import {
   Sparkles,
   Layout
 } from 'lucide-react';
+import { apiFetch } from '../utils/api';
 import type { BirthdayContent, FriendResponse, MemoryItem, SectionTexts } from '../types';
 
 interface AdminCMSModalProps {
@@ -69,7 +70,7 @@ export const AdminCMSModal: React.FC<AdminCMSModalProps> = ({
     setAuthError('');
 
     try {
-      const res = await fetch('/api/verify-admin', {
+      const res = await apiFetch('api/verify-admin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ pin })
@@ -92,7 +93,7 @@ export const AdminCMSModal: React.FC<AdminCMSModalProps> = ({
 
   const fetchResponses = async (adminPin: string) => {
     try {
-      const res = await fetch('/api/responses', {
+      const res = await apiFetch('api/responses', {
         headers: { 'x-admin-pin': adminPin }
       });
       const data = await res.json();
@@ -110,7 +111,7 @@ export const AdminCMSModal: React.FC<AdminCMSModalProps> = ({
     setSaveMessage(null);
 
     try {
-      const res = await fetch('/api/content', {
+      const res = await apiFetch('api/content', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -150,7 +151,7 @@ export const AdminCMSModal: React.FC<AdminCMSModalProps> = ({
   const handleDeleteResponse = async (id: string) => {
     if (!confirm('Hapus balasan ini?')) return;
     try {
-      await fetch(`/api/responses/${id}`, {
+      await apiFetch(`api/responses/${id}`, {
         method: 'DELETE',
         headers: { 'x-admin-pin': pin }
       });

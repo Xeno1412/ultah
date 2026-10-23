@@ -1,0 +1,28 @@
+# Apache Configuration for XAMPP / htdocs
+Options -Indexes
+RewriteEngine On
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, x-admin-pin, Authorization"
+</IfModule>
+
+# Handle API routes to PHP scripts
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^api/content/?$ api/content.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^api/verify-friend/?$ api/verify-friend.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^api/verify-admin/?$ api/verify-admin.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^api/send-response/?$ api/send-response.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^api/responses/([^/]+)/?$ api/responses.php?id=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^api/responses/?$ api/responses.php [L,QSA]

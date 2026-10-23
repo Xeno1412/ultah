@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Send, Sparkles, CheckCircle2, Heart, Mail, Trash2 } from 'lucide-react';
 import { fireCelebrationConfetti } from '../utils/confetti';
 import { soundPlayer } from '../utils/sound';
+import { apiFetch } from '../utils/api';
 import type { BirthdayContent } from '../types';
 
 interface ResponseFormProps {
@@ -68,7 +69,7 @@ export const ResponseForm: React.FC<ResponseFormProps> = ({
     setErrorStatus(null);
 
     try {
-      const res = await fetch('/api/send-response', {
+      const res = await apiFetch('api/send-response', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

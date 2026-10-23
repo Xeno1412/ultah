@@ -8,6 +8,7 @@ import { PolaroidGallery } from './components/PolaroidGallery';
 import { ResponseForm } from './components/ResponseForm';
 import { AdminCMSModal } from './components/AdminCMSModal';
 import { soundPlayer } from './utils/sound';
+import { apiFetch } from './utils/api';
 import type { BirthdayContent } from './types';
 import { Shield, Sparkles, Heart, Save, CheckCircle2, Edit3, X, Sliders } from 'lucide-react';
 
@@ -97,7 +98,7 @@ export default function App() {
   // Load content from backend
   const fetchContent = async () => {
     try {
-      const res = await fetch('/api/content');
+      const res = await apiFetch('api/content');
       if (res.ok) {
         const data = await res.json();
         if (data.success && data.data) {
@@ -139,7 +140,7 @@ export default function App() {
   const handleSaveVisualEdits = async () => {
     setSaveStatus('Menyimpan...');
     try {
-      const res = await fetch('/api/content', {
+      const res = await apiFetch('api/content', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
