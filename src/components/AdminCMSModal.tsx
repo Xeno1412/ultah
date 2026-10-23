@@ -18,7 +18,7 @@ import {
   Sparkles,
   Layout
 } from 'lucide-react';
-import { apiFetch } from '../utils/api';
+import { apiFetch, resolveAssetUrl } from '../utils/api';
 import type { BirthdayContent, FriendResponse, MemoryItem, SectionTexts } from '../types';
 
 interface AdminCMSModalProps {
@@ -966,7 +966,7 @@ export const AdminCMSModal: React.FC<AdminCMSModalProps> = ({
                           className="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col sm:flex-row gap-4 items-start"
                         >
                           <img
-                            src={mem.imageUrl}
+                            src={resolveAssetUrl(mem.imageUrl)}
                             alt={mem.title}
                             className="w-24 h-24 rounded-xl object-cover bg-slate-200 shrink-0 border border-slate-300"
                           />

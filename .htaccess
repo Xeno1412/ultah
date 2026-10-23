@@ -1,6 +1,6 @@
-# Apache Configuration for XAMPP / htdocs
+# Konfigurasi Apache untuk XAMPP / htdocs
 Options -Indexes
-RewriteEngine On
+DirectoryIndex index.html
 
 <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
@@ -8,21 +8,29 @@ RewriteEngine On
     Header set Access-Control-Allow-Headers "Content-Type, x-admin-pin, Authorization"
 </IfModule>
 
-# Handle API routes to PHP scripts
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^api/content/?$ api/content.php [L,QSA]
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^api/verify-friend/?$ api/verify-friend.php [L,QSA]
+    # Jangan pernah sajikan isi folder data secara langsung.
+    # File JSON tetap dibaca oleh PHP di server.
+    RewriteRule ^data(/|$) - [F,L]
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^api/verify-admin/?$ api/verify-admin.php [L,QSA]
+    # Endpoint API tanpa ekstensi .php (dipakai frontend).
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^api/content/?$ api/content.php [L,QSA]
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^api/send-response/?$ api/send-response.php [L,QSA]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^api/verify-friend/?$ api/verify-friend.php [L,QSA]
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^api/responses/([^/]+)/?$ api/responses.php?id=$1 [L,QSA]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^api/verify-admin/?$ api/verify-admin.php [L,QSA]
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^api/responses/?$ api/responses.php [L,QSA]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^api/send-response/?$ api/send-response.php [L,QSA]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^api/responses/([^/]+)/?$ api/responses.php?id=$1 [L,QSA]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^api/responses/?$ api/responses.php [L,QSA]
+</IfModule>

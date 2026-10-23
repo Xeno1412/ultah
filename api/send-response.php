@@ -31,9 +31,9 @@ $newResponse = [
     'createdAt' => date('c'),
     'emailDelivery' => [
         'attempted' => true,
-        'success' => true,
+        'success' => false,
         'destination' => $targetEmail,
-        'detail' => "Tercatat & terkirim ke antrean email $targetEmail"
+        'detail' => 'Mempersiapkan pengiriman...'
     ]
 ];
 
@@ -51,7 +51,15 @@ if (!empty($newResponse['favoriteMemory'])) {
 }
 $body .= "<p><strong>Waktu:</strong> " . date('Y-m-d H:i:s') . "</p>";
 
-@mail($targetEmail, $subject, $body, $headers);
+$mailSent = @mail($targetEmail, $subject, $body, $headers);
+
+if ($mailSent) {
+    $newResponse['emailDelivery']['success'] = true;
+    $newResponse['emailDelivery']['detail'] = "Terkirim ke $targetEmail";
+} else {
+    $newResponse['emailDelivery']['success'] = false;
+    $newResponse['emailDelivery']['detail'] = "Tersimpan di Inbox Pemilik. Email belum terkirim: konfigurasi mail()/SMTP di php.ini belum aktif.";
+}
 
 // Append to data/responses.json
 $respPath = __DIR__ . '/../data/responses.json';

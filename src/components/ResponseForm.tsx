@@ -25,6 +25,7 @@ export const ResponseForm: React.FC<ResponseFormProps> = ({
   const [favoriteMemory, setFavoriteMemory] = useState('');
   const [loading, setLoading] = useState(false);
   const [successStatus, setSuccessStatus] = useState<string | null>(null);
+  const [emailNotice, setEmailNotice] = useState<string | null>(null);
   const [errorStatus, setErrorStatus] = useState<string | null>(null);
 
   const texts = content.sectionTexts || {};
@@ -67,6 +68,7 @@ export const ResponseForm: React.FC<ResponseFormProps> = ({
 
     setLoading(true);
     setErrorStatus(null);
+    setEmailNotice(null);
 
     try {
       const res = await apiFetch('api/send-response', {
@@ -84,6 +86,11 @@ export const ResponseForm: React.FC<ResponseFormProps> = ({
 
       if (res.ok && data.success) {
         setSuccessStatus(data.message || 'Pesan balasan berhasil terkirim ke email Davio!');
+        if (data.responseItem?.emailDelivery?.success === false) {
+          setEmailNotice(
+            'Pesanmu sudah tersimpan di Inbox Pemilik. Email belum terkirim karena server email belum dikonfigurasi.'
+          );
+        }
         fireCelebrationConfetti();
         soundPlayer.playCelebrationChime();
         setMessage('');
@@ -282,9 +289,13 @@ export const ResponseForm: React.FC<ResponseFormProps> = ({
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                 <div>
                   <p className="font-bold">{successStatus}</p>
-                  <p className="text-xs text-emerald-700 mt-1">
-                    Email notifikasi telah dialirkan ke <strong className="underline">{targetEmail}</strong> dan tersimpan aman di Inbox Pemilik.
-                  </p>
+                  {emailNotice ? (
+                    <p className="text-xs text-amber-700 mt-1">{emailNotice}</p>
+                  ) : (
+                    <p className="text-xs text-emerald-700 mt-1">
+                      Email notifikasi telah dialirkan ke <strong className="underline">{targetEmail}</strong> dan tersimpan aman di Inbox Pemilik.
+                    </p>
+                  )}
                 </div>
               </div>
             )}

@@ -13,8 +13,8 @@ $contentPath = __DIR__ . '/../data/birthday.json';
 $content = file_exists($contentPath) ? json_decode(file_get_contents($contentPath), true) : [];
 $adminPin = isset($content['adminPin']) ? trim($content['adminPin']) : '1708';
 
-$headers = getallheaders();
-$pin = $headers['x-admin-pin'] ?? $headers['X-Admin-Pin'] ?? $_GET['pin'] ?? '';
+$headers = function_exists('getallheaders') ? getallheaders() : [];
+$pin = $headers['x-admin-pin'] ?? $headers['X-Admin-Pin'] ?? $_SERVER['HTTP_X_ADMIN_PIN'] ?? $_GET['pin'] ?? '';
 
 if (trim($pin) !== $adminPin) {
     http_response_code(403);

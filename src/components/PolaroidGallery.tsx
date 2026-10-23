@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Camera, X, Calendar, ZoomIn, Trash2, Edit3, Plus, Image as ImageIcon } from 'lucide-react';
 import type { BirthdayContent, MemoryItem } from '../types';
+import { resolveAssetUrl } from '../utils/api';
 
 interface PolaroidGalleryProps {
   content: BirthdayContent;
@@ -189,7 +190,7 @@ export const PolaroidGallery: React.FC<PolaroidGalleryProps> = ({
                 {/* Visual Image Container */}
                 <div className="relative aspect-4/3 w-full rounded-xl overflow-hidden bg-slate-100 border border-slate-200/60 mb-4">
                   <img
-                    src={mem.imageUrl}
+                    src={resolveAssetUrl(mem.imageUrl)}
                     alt={mem.title}
                     referrerPolicy="no-referrer"
                     onError={(e) => {
@@ -286,7 +287,7 @@ export const PolaroidGallery: React.FC<PolaroidGalleryProps> = ({
 
               <div className="relative aspect-4/3 w-full bg-slate-900">
                 <img
-                  src={selectedPhoto.imageUrl}
+                  src={resolveAssetUrl(selectedPhoto.imageUrl)}
                   alt={selectedPhoto.title}
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"

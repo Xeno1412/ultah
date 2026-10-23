@@ -1,0 +1,9 @@
+# Folder ini menyimpan PIN admin dan kata sandi teman di birthday.json.
+# Blokir akses langsung dari browser; PHP tetap bisa membacanya lewat filesystem.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>

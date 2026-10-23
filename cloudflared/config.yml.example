@@ -1,0 +1,17 @@
+# Contoh konfigurasi Cloudflare Tunnel dengan domain sendiri.
+# Salin menjadi config.yml lalu ganti nilai di bawah.
+#
+# 1. cloudflared tunnel login
+# 2. cloudflared tunnel create birthday-web
+# 3. cloudflared tunnel route dns birthday-web ultah.domainmu.com
+# 4. cloudflared tunnel run --config cloudflared\config.yml birthday-web
+#
+# Ganti UUID dan path credentials sesuai hasil perintah `cloudflared tunnel create`.
+
+tunnel: GANTI-DENGAN-UUID-TUNNEL
+credentials-file: C:\Users\NAMA-USER\.cloudflared\GANTI-DENGAN-UUID-TUNNEL.json
+
+ingress:
+  - hostname: ultah.domainmu.com
+    service: http://localhost:80
+  - service: http_status:404

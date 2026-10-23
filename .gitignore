@@ -2,6 +2,8 @@ node_modules/
 build/
 dist/
 coverage/
+/xampp/
+cloudflared/config.yml
 .DS_Store
 *.log
 .env*
