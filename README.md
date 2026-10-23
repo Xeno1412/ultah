@@ -6,7 +6,40 @@ Sekarang web bisa dijalankan **di XAMPP** (Apache + PHP) dan dibagikan lewat **C
 
 ---
 
-## 🚀 Menjalankan di XAMPP
+## ⚡ Cara paling gampang (Windows)
+
+Double-click **`start-xampp.bat`** dari folder proyek. Script akan otomatis:
+
+- menyalin paket build dari `xampp/birthday` ke `C:\xampp\htdocs\birthday`,
+- memindahkan folder lama ke `birthday-backup-...` kalau isinya bukan paket build yang benar,
+- menyalakan Apache XAMPP,
+- membuka `http://localhost/birthday/`,
+- menawarkan untuk langsung membuka Cloudflare Tunnel.
+
+Syarat: paket build sudah ada. Kalau belum:
+
+```bash
+npm install
+npm run build:xampp
+```
+
+Kalau XAMPP tidak terpasang di `C:\xampp`, edit baris ini di bagian atas `start-xampp.bat`:
+
+```bat
+set "XAMPP_DIR=C:\xampp"
+```
+
+Untuk hanya menyiapkan folder tanpa menyalakan Apache:
+
+```bat
+start-xampp.bat --install-only
+```
+
+Kalau paket sudah terpasang, script tidak menimpa folder `data`, jadi konten dan pesan masuk tetap aman. Untuk memperbarui kode, rename dulu folder `htdocs\birthday` lalu jalankan script lagi.
+
+---
+
+## 🚀 Menjalankan di XAMPP secara manual
 
 ### 1. Build paket XAMPP (butuh Node.js, sekali saja)
 
@@ -197,6 +230,7 @@ data/                 birthday.json (konten) & responses.json (inbox)
 public/assets/        foto kenangan
 scripts/build-xampp.mjs   pembuat paket XAMPP
 src/                  aplikasi React
+start-xampp.bat       start XAMPP satu klik (copy + Apache + browser)
 start-cloudflare-tunnel.bat   quick tunnel
 cloudflared/          contoh config named tunnel
 server.ts             server Express untuk mode Node.js
