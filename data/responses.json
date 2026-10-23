@@ -1,0 +1,16 @@
+[
+  {
+    "id": "resp-1792740845427",
+    "senderName": "Sarah",
+    "reactionEmoji": "🥰",
+    "message": "Makasih banyak Davio! Webnya lucu banget dan aku terharu pol!",
+    "favoriteMemory": "Waktu nongkrong di kafe sampai malam",
+    "createdAt": "2026-10-23T07:34:05.427Z",
+    "emailDelivery": {
+      "attempted": true,
+      "success": true,
+      "destination": "davio.herva17@smk.belajar.id",
+      "detail": "Tercatat & terkirim ke antrean email davio.herva17@smk.belajar.id"
+    }
+  }
+]

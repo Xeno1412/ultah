@@ -1,0 +1,6 @@
+{
+  "name": "Birthday Wish & Celebration Web",
+  "description": "Web ucapan ulang tahun interaktif dengan proteksi password, editor konten admin mandiri, galeri kenangan, tiup lilin interaktif, dan pengiriman respon langsung ke email.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

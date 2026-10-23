@@ -1,0 +1,69 @@
+{
+  "recipientName": "DANIEL RIVALDI ",
+  "nickname": "DANIEL",
+  "birthDate": "03 NOVEMBER 2026",
+  "ageText": "Ke-16",
+  "heroTitle": "Selamat Ulang Tahun, Kacung Terbaikku! ✨",
+  "greetingMessage": "Selamat bertambah usia! Terima kasih sudah selalu menjadi kacung yang paling menyenangkan, tempat bertukar cerita seru, dan selalu ada dalam setiap canda maupun duka. Semoga di umur yang baru ini, setiap impianmu dipermudah, senyummu selalu bersinar, dan persahabatan kita tetap awet sampai tua nanti! 🎉🎂",
+  "wishesList": [
+    "Semoga selalu diberi kesehatan, kebahagiaan, dan kedamaian hati 🌸",
+    "Semoga impian dan cita-cita besarmu tercapai satu per satu ✨",
+    "Tetaplah menjadi pribadi yang hangat dan ceria seperti sekarang 💖",
+    "Semoga kita bisa terus jalan-jalan, kulineran, dan ciptakan memori baru bareng! ☕",
+    "Semoga ga botfrag lagi"
+  ],
+  "memories": [
+    {
+      "id": "mem-1",
+      "title": "mapel produkti pertama bawa laptop",
+      "date": "Momen Kelas",
+      "caption": "Kelakuan random di kelas waktu pelajaran, ga ada jaim-jaimnya sama sekali!",
+      "imageUrl": "/assets/aistudio/WIN_20260819_09_22_37_Pro_e4105511.jpg",
+      "rotation": -2
+    },
+    {
+      "id": "mem-2",
+      "title": "fotbar brg hantu",
+      "date": "Momen Seru",
+      "caption": "Momen nongkrong bareng sambil pamer layar hp, gaya andalan!",
+      "imageUrl": "/assets/aistudio/image_c025fd4f.png",
+      "rotation": 2
+    },
+    {
+      "id": "mem-3",
+      "title": "day terakhir PLH hedset",
+      "date": "Lorong Sekolah",
+      "caption": "Momen rajin gotong tangga di lorong sekolah berseragam batik.",
+      "imageUrl": "/assets/aistudio/image_ee633278.png",
+      "rotation": -1
+    }
+  ],
+  "bgMusicTitle": "Warm Birthday Melody",
+  "notificationEmail": "davio.herva17@smk.belajar.id",
+  "friendPassword": "teman2026",
+  "adminPin": "1708",
+  "secretLetter": "Pesan Rahasia Tambahan: Hbd daniel bujang",
+  "sectionTexts": {
+    "heroSubtitle": "Hari ini didedikasikan penuh untuk merayakan senyummu, kebaikanmu, dan segala cerita hebat yang telah kita lewati bersama. Semoga tahun ini membawa berkah luar biasa!",
+    "heroConfettiBtn": "Rayakan dengan Konfeti!",
+    "heroCakeBtn": "Tiup Lilin Kue",
+    "letterKicker": "Dari Hati yang Paling Tulus",
+    "letterBadge": "Spesial Hari Ulang Tahun",
+    "letterSignature": "— Dengan penuh kasih & doa, Sahabatmu ✨",
+    "wishesHeader": "Untaian Doa & Harapan Terbaik:",
+    "cakeBadge": "Momen Tiup Lilin Virtual",
+    "cakeTitle": "Pejamkan Mata, Ucapkan Doa, & Tiup Lilinnya!",
+    "cakeSubtitle": "Sebelum meniup, pikirkan satu impian terbesar yang ingin kamu wujudkan di umur barumu ini.",
+    "cakeBlowBtn": "Tiup Lilin Sekarang! 💨",
+    "cakeSuccessText": "Lilin Telah Ditiup! Semoga Harapanmu Segera Terkabul ✨",
+    "galleryBadge": "Galeri Memori",
+    "galleryTitle": "Momen-Momen Manis Bersama",
+    "gallerySubtitle": "Setiap tawa dan kenangan yang terabadikan menjadi bukti indahnya persahabatan kita.",
+    "responseBadge": "Kirim Balasan Langsung",
+    "responseTitle": "Tulis Balasan atau Harapanmu untuk Davio",
+    "responseSubtitle": "Pesan yang kamu tulis di formulir ini akan langsung terkirim otomatis ke email pemilik.",
+    "responseSubmitBtn": "Kirim Balasan Langsung ke Email Davio 💌",
+    "footerText": "Dibuat dengan penuh kasih khusus untukmu",
+    "footerSubtext": "Pesan balasan langsung terhubung ke email pemilik."
+  }
+}
